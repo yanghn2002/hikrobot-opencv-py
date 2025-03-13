@@ -14,5 +14,5 @@ while True:
     while width >= 1000 or height >= 1000:
         width /= 2
         height /= 2
-    cv.imshow("Hikrobot OpenCV Python example", cv.resize(image, (int(height), int(width))))
+    cv.imshow("Hikrobot OpenCV Python example (ESC to exit)", cv.resize(image, (int(height), int(width))))
     if 27 == cv.waitKey(1): break
