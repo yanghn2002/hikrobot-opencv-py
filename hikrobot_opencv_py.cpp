@@ -6,24 +6,25 @@
 
 
 namespace py = pybind11;
+namespace hik = hikcv;
 
 
-hikcv::MvContext::DeviceIndex enum_devices(void) {
-    return hikcv::MvContext::instance().enumDevices();
+hik::MvContext::DeviceIndex enum_devices(void) {
+    return hik::MvContext::instance().enumDevices();
 }
 
 
 class CvCaptureWrapper {
 
-    hikcv::CvCapture _camera;
+    hik::CvCapture _camera;
     cv::Mat _image;
 
     public:
     
         CvCaptureWrapper(const unsigned index)
-        : _camera(hikcv::MvContext::instance().createCapture(index)) { }
+        : _camera(hik::MvContext::instance().createCapture(index)) { }
         CvCaptureWrapper(const std::string& serial_number)
-        : _camera(hikcv::MvContext::instance().createCapture(serial_number)) { }
+        : _camera(hik::MvContext::instance().createCapture(serial_number)) { }
 
         void start(void) {
             _camera.start();
@@ -46,7 +47,7 @@ class CvCaptureWrapper {
                     break;
                 case CV_8S: dtype = py::dtype::of<int8_t>();
                     break;
-                case CV_16U:  dtype = py::dtype::of<uint16_t>();
+                case CV_16U: dtype = py::dtype::of<uint16_t>();
                     break;
                 case CV_16S: dtype = py::dtype::of<int16_t>();
                     break;
@@ -59,11 +60,10 @@ class CvCaptureWrapper {
                 default: throw std::runtime_error("Invalid 'cv::Mat' depth");
             }
             std::vector<size_t> shape;
-            if (channels == 1) {
-                shape = {static_cast<size_t>(rows), static_cast<size_t>(cols)};
-            } else {
-                shape = {static_cast<size_t>(rows), static_cast<size_t>(cols), static_cast<size_t>(channels)};
-            }
+            if (channels == 1)
+                shape = { static_cast<size_t>(rows), static_cast<size_t>(cols) };
+            else
+                shape = { static_cast<size_t>(rows), static_cast<size_t>(cols), static_cast<size_t>(channels) };
             return py::array(dtype, shape, _image.data);
         }
 
