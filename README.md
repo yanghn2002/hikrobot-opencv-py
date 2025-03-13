@@ -8,7 +8,7 @@ git clone https://github.com/yanghn2002/hikrobot-opencv-cpp
 
 ## Usage
 
-[Requirements here](hikrobot-opencv-cpp/doc/requirements.md)
+[Requirements here](hikrobot-opencv-cpp/doc/requirements.md) ([*Github*](https://github.com/yanghn2002/hikrobot-opencv-cpp/blob/main/doc/requirements.md))
 
 ### Build module
 
