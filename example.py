@@ -1,11 +1,11 @@
-import hikrobot_opencv_py as hikcv
+import hikrobot_opencv_py as hik
 import numpy as np
 import cv2 as cv
 
 
-print(hikcv.enum_devices())
+print(hik.enum_devices())
 
-capture = hikcv.CvCapture(0)
+capture = hik.CvCapture(0)
 capture.start()
 
 while True:
