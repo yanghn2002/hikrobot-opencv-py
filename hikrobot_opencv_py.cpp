@@ -70,17 +70,19 @@ class CvCaptureWrapper {
 };
 
 
-PYBIND11_MODULE(hikrobot_opencv_py, module) {
+PYBIND11_MODULE(hikrobot_opencv_py, mod) {
 
-    module.doc() = "Python module for capturing 'python-opencv' image from Hikvision industrial camera.";
+    mod.doc() = "Python module for capturing 'python-opencv' image from Hikvision industrial camera.";
 
-    module.def("enum_devices", &enum_devices, py::return_value_policy::copy);
+    mod.def("enum_devices", &enum_devices, py::return_value_policy::copy);
 
-    py::class_<CvCaptureWrapper>(module, "CvCapture")
+    py::class_<CvCaptureWrapper>(mod, "CvCapture")
         .def(py::init<const unsigned>())
         .def(py::init<const std::string&>())
         .def("start", &CvCaptureWrapper::start)
         .def("stop", &CvCaptureWrapper::stop)
         .def("get", &CvCaptureWrapper::get);
+    
+    mod.attr("__version__") = hik::version;
     
 }

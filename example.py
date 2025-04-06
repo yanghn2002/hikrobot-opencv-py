@@ -3,6 +3,7 @@ import numpy as np
 import cv2 as cv
 
 
+print(f"Hikrobot OpenCV {hik.__version__}")
 print(hik.enum_devices())
 
 capture = hik.CvCapture(0)
