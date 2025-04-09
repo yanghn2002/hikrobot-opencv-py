@@ -4,9 +4,15 @@ import cv2 as cv
 
 
 print(f"Hikrobot OpenCV {hik.__version__}")
-print(hik.enum_devices())
 
-capture = hik.CvCapture(0)
+devices = hik.enum_devices()
+print("devices:")
+for index in devices:
+    print(f"\t{index}: {devices[index]}")
+
+input_serial_number = input("input camera serial number to open: ")
+
+capture = hik.CvCapture(input_serial_number)
 capture.start()
 
 while True:
