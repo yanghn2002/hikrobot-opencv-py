@@ -1,3 +1,4 @@
+import os
 import subprocess
 from setuptools import setup
 from setuptools.command.build import build
@@ -5,6 +6,8 @@ from setuptools.command.build import build
 
 class Build(build):
     def run(self):
+        if not os.path.exists('hikrobot-opencv-cpp'):
+            subprocess.check_call(['git', 'clone', 'https://github.com/yanghn2002/hikrobot-opencv-cpp'])
         subprocess.check_call(['make', 'build'])
         super().run()
 
