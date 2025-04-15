@@ -2,27 +2,22 @@
 
 Python module for capturing 'python-opencv' image from Hikvision industrial camera, Python binding for the ['hikrobot-opencv-cpp'](https://github.com/yanghn2002/hikrobot-opencv-cpp) project.
 
-```shell
-git clone https://github.com/yanghn2002/hikrobot-opencv-cpp
-```
-
-## Usage
+## Build & Install
 
 [Hikrobot-OpenCV-CPP requirements here](hikrobot-opencv-cpp/doc/requirements.md) ([*Github*](https://github.com/yanghn2002/hikrobot-opencv-cpp/blob/main/doc/requirements.md))
 
 ```shell
-pip install numpy opencv-python
+git clone https://github.com/yanghn2002/hikrobot-opencv-cpp
+pip install -r requirements.txt
+pip install .
 ```
 
-### Build module
+## Usage
 
 ```shell
-pip install pybind11
-make
+python3 -m hikrobot_opencv
 ```
 
-### Import module
-
 ```python
-import hikrobot_opencv_py as hik
+import hikrobot_opencv as hik
 ```

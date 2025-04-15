@@ -1,5 +1,4 @@
-import hikrobot_opencv_py as hik
-import numpy as np
+import hikrobot_opencv as hik
 import cv2 as cv
 
 
