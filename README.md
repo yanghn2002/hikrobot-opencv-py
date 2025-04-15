@@ -4,7 +4,7 @@ Python module for capturing 'python-opencv' image from Hikvision industrial came
 
 ## Build & Install
 
-[Hikrobot-OpenCV-CPP requirements here](hikrobot-opencv-cpp/doc/requirements.md) ([*Github*](https://github.com/yanghn2002/hikrobot-opencv-cpp/blob/main/doc/requirements.md))
+[Hikrobot-OpenCV-CPP requirements](https://github.com/yanghn2002/hikrobot-opencv-cpp/blob/main/doc/requirements.md)
 
 ```shell
 pip install git+https://github.com/yanghn2002/hikrobot-opencv-py
