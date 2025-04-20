@@ -1,13 +1,18 @@
 import hikrobot_opencv as hik
 import cv2 as cv
+import sys
 
 
 print(f"Hikrobot OpenCV {hik.__version__}")
 
 devices = hik.enum_devices()
-print("devices:")
-for index in devices:
-    print(f"\t{index}: {devices[index]}")
+if devices:
+    print("devices:")
+    for index in devices:
+        print(f"\t{index}: {devices[index]}")
+else:
+    print("No device found")
+    sys.exit()
 
 input_serial_number = input("input camera serial number to open: ")
 
